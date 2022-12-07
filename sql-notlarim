@@ -1,0 +1,43 @@
+SELECT & FROM KULLANIMI
+
+SELECT title FROM film;
+
+-- SELECT sutunismi FROM hangitablo; (-- yorum satırı için)
+
+SELECT * FROM film;
+
+-- Bütün sütunları çağırır.
+
+WHERE KULLANIMI
+
+SELECT * FROM actor
+WHERE first_name = 'Penelope';
+
+WHERE koşullu ifadedir. String koşul belirlenirse tek tırnak içerisinde yazılır.
+Bu örnekte actor tablosundan ismi Penelope olan tüm aktörleri çağırıyoruz.
+
+SELECT * FROM film
+WHERE rental_rate != 0.99;
+
+Bu örnekte ise film tablosundan kiralama ücreti 0.99 olmayan tüm filmleri listeliyoruz.
+
+PostgreSQL MANTIKSAL OPERATÖRLER
+
+AND = ve operatörü her iki koşulun sağlanması durumunda çalışır.
+OR = Veya operatörü iki koşuldan birinin sağlanması durumunda çalışır.
+NOT = Değildir operatörü belirlenen koşul sağlanmayan verilere erişir.
+
+SELECT * FROM film
+WHERE rental_rate = 4.99 AND length > 90;
+
+Bu örnekte film tablosundan kiralama bedeli 4.99 ve uzunluğu 90 dakika üzeri olan tüm filmleri listeledik.
+
+SELECT * FROM film
+WHERE NOT rental_rate = 4.99;
+
+Bu örnekte kiralama bedeli 4.99 olan filmlerin haricindeki filmler listelenir.
+
+SELECT * FROM film
+WHERE NOT (rental_rate = 4.99 AND replacement_cost = 20.99);
+
+Bu örnekte ki kullanımdaysa iki koşuluda parantez içerisine alarak NOT operatörünü iki koşulda uygulayabiliyoruz.
