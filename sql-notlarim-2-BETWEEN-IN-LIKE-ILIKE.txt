@@ -1,0 +1,55 @@
+BETWEEN KULLANIMI
+
+--SELECT title, length FROM film
+--WHERE length >= 90 AND length <= 120;
+
+SELECT title, length FROM film
+WHERE length BETWEEN 90 AND 120;
+
+Yukarıda yorum satırlarında ki kod ile altında ki kod bloğu aynı işlevi görür. Normalde >= ve <= ile sınır değerleri belirlenirken,
+BETWEEN ile bu iş kolaylaştırılıp, daha az zahmetle halledilebiliyor. NOT ile beraber kullanılabilir.
+
+SELECT title, length FROM film
+WHERE length NOT BETWEEN 90 AND 120; --length < 90 OR length > 120 anlamına gelir.
+
+SELECT rental_rate, replacement_cost FROM film
+WHERE (rental_rate BETWEEN 2 AND 4) AND (replacement_cost BETWEEN 10 AND 20);
+
+IN KULLANIMI
+
+--SELECT * FROM film
+--WHERE length = 40, OR length = 50, OR length = 60; 
+
+SELECT * FROM film
+WHERE length IN (40, 50, 60);
+
+Yukarıda yorum satırlarında ki kod ile altında ki kod bloğu aynı işlevi görür. Bu kod bloğu yalnızca length değeri 40, 50 ve 60 olan verileri listeler.
+OR kullanımıyla uzun uzun yazmak yerine IN ile daha az zahmetle aynı işlevi gerçekleştirebiliriz. NOT ile beraber kullanılabilir.
+
+SELECT * FROM film
+WHERE replacement_cost NOT IN (10.99, 12.99, 16.99);
+
+LIKE KULLANIMI
+
+SELECT * FROM customer
+WHERE first_name LIKE 'Ma%'; 
+
+LIKE genellikle kısıtlı bilgilerle verilere erişmek için kullanılır. Yukarıda ki örnekte isminin ilk harfi M ikinci harfi a olan verilere erişir.
+% Ya herhangi bir karakter yoktur ya da birden fazla karakter için yer tutucu anlamına gelir. Başta, sonda ve ortada kullanılabilir.
+Başta (%y) kullanılırsa son harfi y olacak şekilde öncesinde ki harfler için yer tutucu anlamında, 
+sonda (M%) kullanılırsa baş harfi M olacak şekilde sonrasında ki harfler için yer tutucu anlamında,
+ortada (A%y) kullanılırsa baş harfi A, son harfi y olacak şekilde sonrasında ki harfler için yer tutucu anlamında kullanılır.
+NOT ile beraber kullanılabilir.
+
+SELECT * FROM customer
+WHERE first_name LIKE 'J_an';
+
+Yukarıda ki örnekte ise _ kullanılarak tek bir karakter için yer tutulmuştur.
+
+ILIKE KULLANIMI
+
+SELECT * FROM actor
+WHERE first_name ILIKE 'p%';
+
+ILIKE ın LIKE dan tek farkı büyük küçük harf duyarlılığını kapatmasıdır. LIKE kullanarak p harfi ile mevcut veri tabanında bir veri olmadığı için herhangi bir veriye erişemezken,
+ILIKE kullanımıyla duyarlılığı kapatıp, küçük harf kullanarak büyük harf ile başlayan verileride dahil edebiliriz.
