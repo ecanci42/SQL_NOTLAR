@@ -1,0 +1,27 @@
+DISTINCT KULLANIMI
+
+SELECT DISTINCT rental_rate FROM film;
+
+Yukarıda ki örnekte DISTINCT ile rental_rate'in birbirinden farklı/benzersiz 3 adet veri barındırdığını buluyoruz.
+Özetle bir sütunda ki birbirinden farklı değerleri bulmak için kullanılır.
+Tekrar eden değerleri bir kez gösterip, kalan tekrarları göstermez. Örnek --> veri = [1, 1, 2, 2, 3] --> Veri = [1, 2, 3]
+Sntax olarak SELECT'ten sonra kullanılır.
+Birden fazla sütun için kullanılabilir. Örnek --> SELECT DISTINCT sütun1, sütun2, ...
+Birden fazla sütunda çalışırken iki sütun tek gibi kabul edilerek çalışır ve benzer değerler gösterilebilir,
+ancak burada iki sütun tek olarak kabul edildiği için, benzersiz olarak kabul edilir.
+
+COUNT KULLANIMI
+
+SELECT COUNT(*) FROM actor
+WHERE first_name = 'Penelope';
+
+Yukarıda ki örnekte COUNT bize actor tablosunda ki first_name değeri 'Penelope' olan veri miktarını dönüyor.
+COUNT bir fonksiyon olduğu için parametresini parantezleri içerisinde yazmak gerekiyor.
+
+DISTINCT & COUNT KULLANIMI
+
+SELECT COUNT(DISTINCT first_name) FROM actor;
+
+Yukarıda DISTINCT ve COUNT'ın birlikte kullanımı gösterilmiştir. 
+Bu örneğe göre COUNT bize actor tablosundan, first_name değeri birbirinden benzersiz (DISTINCT)
+kaç veri miktarı olduğunu döner.
