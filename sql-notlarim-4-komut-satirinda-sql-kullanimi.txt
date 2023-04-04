@@ -1,0 +1,26 @@
+KOMUT SATIRINDA SQL KULLANIMI
+
+psql -U postgres -> postgres kullanıcısı için şifre belirler ve giriş yaparız.
+
+help -> bazı yararlı bilgilere nasıl ulaşacağımızı gösterir.
+
+\h -> SQL komutları hakkında yardım.
+
+\? -> psql dahili komutları için yardım.
+
+\list | \l -> sistemde bulunan veri tabanlarını gösterir.
+
+\connect dvdrental -> geçiş yapmak istediğimiz veri tabanına ulaşmamızı sağlar. Bu örnekte dvdrental a ulaştık.
+
+\dt -> veri tabanında bulunan tabloları gösterir.
+
+\d actor -> actor tablosunun detaylarını gösterir.
+
+TERMİNALDE SQL SORGULARI YAZMA
+
+SELECT * FROM actor WHERE first_name = 'Penelope'; -> tek satırda bu şekilde yazılabilir.
+
+SELECT * FROM actor
+WHERE first_name = 'Penelope'
+; -> terminalde noktalı virgül koyulmadığı sürece sorgunun bitmediği kabul edilir ve enter'a basılmasına rağmen yeni satıra geçer
+ancak sonuç vermez. Bu şekilde kodları birden fazla satırda yazabiliriz.
